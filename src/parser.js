@@ -48,10 +48,8 @@ class Parser {
     ({ files } = this);
     this.files = [];
     for (filename in files) { this.files.push(filename); }
-    console.log(nodePath.join(this.options.basedir, this.filename));
     this.dependencies = this.getDependencies(nodePath.join(this.options.basedir, this.filename));
 
-    console.log(JSON.stringify(this, null, 2));
     return this;
   }
 

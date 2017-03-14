@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 var colors = require('colors');
-var PugInheritance = require('../src/index');
+var PugInheritance = require('../lib/index');
 var pjson = require(__dirname + '/../package.json');
 var program = require('commander');
-
 
 program
   .version(pjson.version)
@@ -11,7 +10,6 @@ program
   .option('--basedir [string]', 'Required for includes and extends that use absolute paths.')
   .option('--tree', 'Instead of an array containing the files which would be affected by a change in the input file, print the inheritance tree.')
   .parse(process.argv);
-
 
 var filename = program.args[0];
 
@@ -27,10 +25,8 @@ if (!directory) {
   directory = '.'
 }
 
-
 options = {};
 options.basedir = program.basedir || directory;
-
 
 var inheritance = new PugInheritance(filename, directory, options);
 var output = program.tree ? inheritance.tree : inheritance.files;
