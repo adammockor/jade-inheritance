@@ -1,7 +1,7 @@
 var test = require('tape');
 var path = require('path');
 
-var PugInheritance = require('../src/'),
+var PugInheritance = require('../lib/'),
     baseDir = './test';
 
 var plugin = function(src, directory, ext, skip) {
