@@ -41,7 +41,7 @@ class Parser {
     this.filename = nodePath.relative(this.options.basedir, this.filename);
     this.addFile(this.filename);
 
-    let files = glob.sync(`${this.directory}/**/*${this.extension}`);
+    let files = glob.sync(`${this.directory}/**/*${this.extension}`, {dot:true});
     this.tree = this.getInheritance(this.filename, files);
 
 
