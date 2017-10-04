@@ -7,7 +7,10 @@ const pugParser = require('pug-parser');
 const pugWalk = require('pug-walk');
 const pugDependency = require('pug-dependency');
 
-let pkginfo = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+let pkginfo = {};
+if(fs.existsSync('./package.json')){
+  pkginfo = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+}
 
 let resolvePath = function(path, file, basedir, extension, purpose) {
 
